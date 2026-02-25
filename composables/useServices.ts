@@ -20,7 +20,7 @@ export const services: ServiceItem[] = [
       'Steel and aluminium doors, windows, and frames',
       'Car ports, mining shelves, and structural fabrication'
     ],
-    image: '/images/custom-gate-fabrication-team.jpg',
+    image: '/images/man-is-working-metal-factory-he-is-welding-piece-rail-using-special-tools.jpg',
     alt: 'Team discussing custom gate fabrication project in Emalahleni'
   },
   {
