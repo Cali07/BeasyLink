@@ -1,28 +1,28 @@
-/* Main for app*/
 :root {
-  --main-blue: #1b5e97;
+  --brand-primary: #0d47a1;
+  --brand-secondary: #f57f17;
+  --surface-muted: #f5f7fa;
+}
+
+html,
+body,
+#__nuxt {
+  margin: 0;
+  min-height: 100%;
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: Inter, "Segoe UI", Roboto, sans-serif;
+  color: #1f2937;
+  background: #fff;
 }
 
-/* LOGIN PAGE*/
-.banner {
-  height: 100vh;
-  object-fit: cover;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-#logobanner .v-img__img--contain {
-  object-fit: unset !important;
-}
-
-.btn-blue {
-  background-color: var(--main-blue) !important;
-  color: white !important;
-}
-
-/* DASHBOARD */
-.text-blue-c {
-  color: #125792 !important;
+.section-title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }

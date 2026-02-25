@@ -1,10 +1,9 @@
-<script setup lang="ts">
-
-</script>
 <template>
   <v-app>
-    <NuxtPage></NuxtPage>
+    <SiteHeader />
+    <v-main>
+      <slot />
+    </v-main>
+    <SiteFooter />
   </v-app>
 </template>
-
-
