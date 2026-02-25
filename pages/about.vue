@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const site = useSiteConfigStore()
+const business = useBusinessDetails()
 
 useSeo({
   title: 'About Beasylink Projects | Witbank Handyman Team',
@@ -20,7 +20,7 @@ useSeo({
       We understand that clients want fast response times and durable results. Every project is scoped clearly, delivered cleanly, and backed by practical experience.
     </p>
     <v-alert color="primary" variant="tonal">
-      Service area: {{ site.serviceAreas.join(', ') }}, Mpumalanga.
+      Service area: {{ business.serviceAreas.join(', ') }}, Mpumalanga.
     </v-alert>
   </v-container>
 </template>

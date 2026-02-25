@@ -9,15 +9,14 @@ This project is a static-first, SEO-ready business site focused on local lead ge
 - Sales-focused landing page with call and WhatsApp CTAs
 - Dedicated services pages for welding, plumbing, and construction
 - Gallery, about, and contact pages
-- Structured SEO (meta tags, OG, Twitter, canonical URLs, JSON-LD, robots, sitemap)
+- Structured SEO (meta tags, OG, Twitter, canonical URLs, JSON-LD, robots)
 - Image strategy based on `@nuxt/image` with responsive lazy-loaded assets
-- Minimal Pinia usage for global business configuration only
+- Shared composables for business details and SEO metadata
 
 ## Tech stack
 
 - **Nuxt 3**
 - **Vuetify 3**
-- **Pinia** (`@pinia/nuxt`) for global site config
 - **@nuxt/image** for responsive images and optimization workflow
 
 ## Local development
@@ -39,16 +38,6 @@ npm run preview
 
 Static output is generated to `.output/public` and is ready for Netlify deployment.
 
-## Environment variables
-
-Use `.env` (optional):
-
-```bash
-NUXT_PUBLIC_SITE_URL=https://beasylink-projects.co.za
-```
-
-If omitted, `https://beasylink-projects.co.za` is used as the default canonical base URL.
-
 ## SEO notes
 
 ### Where meta and canonical settings are managed
@@ -64,7 +53,6 @@ If omitted, `https://beasylink-projects.co.za` is used as the default canonical 
 
 ### Crawl/index files
 - Robots: `public/robots.txt`
-- Sitemap route: `server/routes/sitemap.xml.ts` (prerendered via Nuxt Nitro setting)
 
 ## Image replacement instructions
 
@@ -88,12 +76,11 @@ Deploy steps:
 1. Push repository to your Git provider.
 2. Create a Netlify site from the repo.
 3. Confirm build command and publish dir from `netlify.toml`.
-4. Set `NUXT_PUBLIC_SITE_URL` in Netlify environment variables.
-5. Trigger deploy.
+4. Trigger deploy.
 
-## Site configuration (business details)
+## Business configuration (contact and service details)
 
 Update business-wide details in one place:
-- `stores/siteConfig.ts`
+- `composables/useBusinessDetails.ts`
 
-This store contains phone, WhatsApp, service areas, opening hours, and core services.
+This composable contains phone, WhatsApp, service areas, opening hours, and core services.

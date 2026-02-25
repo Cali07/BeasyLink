@@ -4,7 +4,6 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: false },
   modules: [
-    '@pinia/nuxt',
     '@nuxt/image',
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
@@ -24,11 +23,6 @@ export default defineNuxtConfig({
       }
     }
   },
-  nitro: {
-    prerender: {
-      routes: ['/sitemap.xml']
-    }
-  },
   image: {
     format: ['webp'],
     screens: {
@@ -37,11 +31,6 @@ export default defineNuxtConfig({
       md: 768,
       lg: 1024,
       xl: 1280
-    }
-  },
-  runtimeConfig: {
-    public: {
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://beasylink-projects.co.za'
     }
   }
 })

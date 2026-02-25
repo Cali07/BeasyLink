@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const site = useSiteConfigStore()
+const business = useBusinessDetails()
 const service = getServiceBySlug('welding')!
 
 useSeo({
@@ -18,7 +18,7 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'Service',
         name: service.title,
-        provider: { '@type': 'LocalBusiness', name: site.businessName },
+        provider: { '@type': 'LocalBusiness', name: business.businessName },
         areaServed: ['Witbank', 'Emalahleni', 'Mpumalanga'],
         description: service.fullDescription
       })

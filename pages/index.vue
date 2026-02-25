@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { services } from '~/composables/useServices'
 
-const site = useSiteConfigStore()
+const business = useBusinessDetails()
 
 useSeo({
   title: 'Professional Welding, Plumbing & Construction in Witbank (Emalahleni) | Beasylink Projects',
@@ -13,10 +13,10 @@ useSeo({
 const schema = computed(() => ({
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  name: site.businessName,
-  telephone: site.phone,
-  email: site.email,
-  areaServed: site.serviceAreas,
+  name: business.businessName,
+  telephone: business.phone,
+  email: business.email,
+  areaServed: business.serviceAreas,
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Witbank',
@@ -27,7 +27,7 @@ const schema = computed(() => ({
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Handyman and Construction Services',
-    itemListElement: site.primaryServices.map((item) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: item } }))
+    itemListElement: business.primaryServices.map((item) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: item } }))
   }
 }))
 
@@ -50,8 +50,8 @@ useHead({
               We deliver practical, durable workmanship for homes and small businesses across Witbank, Emalahleni, and nearby suburbs.
             </p>
             <div class="d-flex ga-3 flex-wrap">
-              <v-btn color="primary" size="large" :href="site.telLink" prepend-icon="mdi-phone">Call {{ site.phone }}</v-btn>
-              <v-btn color="secondary" size="large" :href="site.whatsappLink" target="_blank" prepend-icon="mdi-whatsapp">WhatsApp</v-btn>
+              <v-btn color="primary" size="large" :href="business.telLink" prepend-icon="mdi-phone">Call {{ business.phone }}</v-btn>
+              <v-btn color="secondary" size="large" :href="business.whatsappLink" target="_blank" prepend-icon="mdi-whatsapp">WhatsApp</v-btn>
             </div>
           </v-col>
           <v-col cols="12" md="5">
