@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
 :root {
-  --brand-primary: #0d47a1;
-  --brand-secondary: #f57f17;
-  --surface-muted: #f5f7fa;
+  --brand-primary: #1f3a5f;
+  --brand-secondary: #ff8a1f;
+  --brand-accent: #ffb347;
+  --surface-muted: #fff6ed;
+  --text-main: #1f2937;
+  --text-soft: #5b6573;
 }
 
 html,
@@ -12,9 +17,12 @@ body,
 }
 
 body {
-  font-family: Inter, "Segoe UI", Roboto, sans-serif;
-  color: #1f2937;
-  background: #fff;
+  font-family: Manrope, Inter, "Segoe UI", Roboto, sans-serif;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at top right, rgba(255, 179, 71, 0.24), transparent 35%),
+    radial-gradient(circle at bottom left, rgba(31, 58, 95, 0.16), transparent 30%),
+    #fff;
 }
 
 a {
@@ -23,6 +31,22 @@ a {
 }
 
 .section-title {
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.02em;
+}
+
+.soft-surface {
+  background: linear-gradient(180deg, #fff9f3 0%, #fff 100%);
+}
+
+.glass-card {
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 138, 31, 0.15);
+}
+
+@media (max-width: 960px) {
+  .section-title {
+    line-height: 1.2;
+  }
 }
