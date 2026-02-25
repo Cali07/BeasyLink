@@ -44,7 +44,7 @@ useHead({
           <v-col cols="12" md="7">
             <p class="text-overline mb-2">Beasylink Projects</p>
             <h1 class="text-h3 text-md-h2 section-title mb-4">
-              Professional Welding, Plumbing & Construction in Witbank (Emalahleni)
+              Professional Welding Tlotlo Mochwari, Plumbing & Construction in Witbank (Emalahleni)
             </h1>
             <p class="text-body-1 mb-6">
               We deliver practical, durable workmanship for homes and small businesses across Witbank, Emalahleni, and nearby suburbs.
