@@ -67,7 +67,7 @@ useHead({
             <v-chip color="primary" variant="flat" prepend-icon="mdi-cash">Site callout fee: {{ business.calloutFee }}</v-chip>
           </v-col>
           <v-col cols="12" md="5">
-            <NuxtImg src="/images/custom-gate-fabrication-team.jpg" alt="Professional Beasy-Link Projects team discussing gate fabrication" width="600" height="420" sizes="(max-width: 960px) 100vw, 40vw" loading="eager" class="rounded-lg hero-image" />
+            <NuxtImg src="/images/close-up-hard-hat-holding-by-construction-worker.jpg" alt="Professional Beasy-Link Projects team discussing gate fabrication" width="600" height="420" sizes="(max-width: 960px) 100vw, 40vw" loading="eager" class="rounded-lg hero-image" />
           </v-col>
         </v-row>
       </v-container>
