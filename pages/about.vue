@@ -2,25 +2,28 @@
 const business = useBusinessDetails()
 
 useSeo({
-  title: 'About Beasylink Projects | Witbank Handyman Team',
+  title: 'About Beasy-Link Projects | Residential & Commercial Handyman Services',
   description:
-    'Learn about Beasylink Projects, a local Witbank and Emalahleni team focused on dependable welding, plumbing, and construction workmanship.',
+    'Beasy-Link Projects delivers trusted handyman services since 2009, including welding, plumbing, electrical, and construction for homes and businesses in Emalahleni.',
   path: '/about'
 })
 </script>
 
 <template>
   <v-container class="py-12">
-    <h1 class="text-h3 section-title mb-4">About Beasylink Projects</h1>
+    <h1 class="text-h3 section-title mb-4">Professional Handyman Services with a Personal Touch</h1>
     <p class="mb-4">
-      Beasylink Projects is a hands-on service business supporting homeowners, landlords, and small businesses in Witbank (Emalahleni).
-      We focus on quality workmanship, reliability, and fair pricing for welding, plumbing, and construction jobs.
+      At Beasy-Link Projects, we understand that your home or business is more than just a building — it is a reflection of you.
+      That is why we approach every project with quality craftsmanship, attention to detail, and excellent customer service.
     </p>
     <p class="mb-4">
-      We understand that clients want fast response times and durable results. Every project is scoped clearly, delivered cleanly, and backed by practical experience.
+      What sets us apart is our versatility. We cover boilermaking, welding, car ports, gates, aluminium windows and doors,
+      plumbing, electrical work, and construction maintenance for both residential and commercial clients.
     </p>
-    <v-alert color="primary" variant="tonal">
-      Service area: {{ business.serviceAreas.join(', ') }}, Mpumalanga.
-    </v-alert>
+    <p class="mb-4">
+      Since {{ business.yearEstablished }}, we have focused on giving clients great value for money and dependable results on
+      projects of all sizes.
+    </p>
+    <v-alert color="primary" variant="tonal">Service area: {{ business.serviceAreas.join(', ') }}, {{ business.province }}.</v-alert>
   </v-container>
 </template>

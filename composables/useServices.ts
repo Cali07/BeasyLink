@@ -11,45 +11,45 @@ export type ServiceItem = {
 export const services: ServiceItem[] = [
   {
     slug: 'welding',
-    title: 'Welding & Metal Fabrication',
-    shortDescription: 'Custom gates, burglar bars, doors, windows, and carports built to last.',
+    title: 'Boilermaking, Welding & Metal Fabrication',
+    shortDescription: 'Custom gates, burglar proofing, steel doors, and structural welding that lasts.',
     fullDescription:
-      'We fabricate and install steelwork for homes and small businesses, including secure gates, burglar bars, steel doors, and carports across Witbank and Emalahleni.',
+      'From heavy-duty boilermaking work to residential gate fabrication, we build and install secure metal solutions for homes, businesses, and mining projects in Emalahleni.',
     bullets: [
-      'Custom security gates and burglar bars',
-      'Steel doors, windows, and frame repairs',
-      'Carport fabrication and installations'
+      'Custom security gates and burglar proofing',
+      'Steel and aluminium doors, windows, and frames',
+      'Car ports, mining shelves, and structural fabrication'
     ],
-    image: '/images/welding-gate-installation-witbank.svg',
-    alt: 'welding-gate-installation-witbank'
+    image: '/images/custom-gate-fabrication-team.jpg',
+    alt: 'Team discussing custom gate fabrication project in Emalahleni'
   },
   {
     slug: 'plumbing',
-    title: 'Plumbing Repairs & Installations',
-    shortDescription: 'Fast leak repairs, bathroom and kitchen plumbing, and replacement fittings.',
+    title: 'Plumbing Installations & Repairs',
+    shortDescription: 'Bathroom upgrades, leak repairs, and clean plumbing installations for homes and rentals.',
     fullDescription:
-      'From leaking pipes to full fixture installations, we handle dependable plumbing maintenance and upgrades for homes in Witbank, Emalahleni, and nearby suburbs.',
+      'We provide dependable plumbing services including pipe repairs, bathroom fittings, and full fixture installations with neat finishing and practical solutions.',
     bullets: [
-      'Leak detection and pipe repairs',
-      'Tap, toilet, and geyser connection work',
-      'Kitchen and bathroom plumbing installations'
+      'Leak detection and pipe repair',
+      'Shower, toilet, and bathtub installation',
+      'Bathroom and kitchen plumbing maintenance'
     ],
-    image: '/images/plumbing-pipe-repair-emalahleni.svg',
-    alt: 'plumbing-pipe-repair-emalahleni'
+    image: '/images/bathroom-shower-toilet-installation.jpg',
+    alt: 'Modern shower and toilet plumbing installation by Beasy-Link Projects'
   },
   {
     slug: 'construction',
-    title: 'Construction & Property Repairs',
-    shortDescription: 'Small builds, renovations, brickwork, and maintenance jobs done right.',
+    title: 'Construction, Electrical & Maintenance',
+    shortDescription: 'Building, wiring, renovations, and property repairs for residential and commercial spaces.',
     fullDescription:
-      'We complete practical construction projects including wall repairs, paving touch-ups, concrete work, and general property improvements in Mpumalanga.',
+      'Beasy-Link Projects handles construction and maintenance projects from small building works to home wiring, garage repairs, and site improvements across Witbank and nearby areas.',
     bullets: [
-      'Small residential builds and alterations',
-      'Brickwork and plaster repairs',
-      'Concrete and finishing maintenance'
+      'Small construction and renovation projects',
+      'Home and garage wiring with electrical repairs',
+      'General maintenance, fittings, and finishing work'
     ],
-    image: '/images/construction-small-build-witbank.svg',
-    alt: 'construction-small-build-witbank'
+    image: '/images/construction-township-project-emalahleni.png',
+    alt: 'Construction project in a township area in Emalahleni'
   }
 ]
 

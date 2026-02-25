@@ -2,17 +2,17 @@
 const business = useBusinessDetails()
 
 useSeo({
-  title: 'Contact Beasylink Projects | Call or WhatsApp',
+  title: 'Contact Beasy-Link Projects | Handyman Services in Emalahleni',
   description:
-    'Contact Beasylink Projects for welding, plumbing, and construction quotes in Witbank, Emalahleni, and surrounding Mpumalanga suburbs.',
+    'Contact Beasy-Link Projects for welding, plumbing, construction, and electrical services in Witbank and Emalahleni. Standard site callout fee is R200.',
   path: '/contact'
 })
 </script>
 
 <template>
   <v-container class="py-12">
-    <h1 class="text-h3 section-title mb-4">Contact Us</h1>
-    <p class="mb-8">Ready to book a job or request a quote? Call or WhatsApp for a quick response.</p>
+    <h1 class="text-h3 section-title mb-4">Let's Talk</h1>
+    <p class="mb-8">Ready to start your next project? Contact us today to discuss your needs and get a free quote.</p>
 
     <v-row>
       <v-col cols="12" md="6">
@@ -21,8 +21,12 @@ useSeo({
           <p class="mb-2"><strong>Phone:</strong> <a :href="business.telLink">{{ business.phone }}</a></p>
           <p class="mb-2"><strong>WhatsApp:</strong> <a :href="business.whatsappLink" target="_blank">{{ business.phone }}</a></p>
           <p class="mb-2"><strong>Email:</strong> <a :href="`mailto:${business.email}`">{{ business.email }}</a></p>
+          <p class="mb-2"><strong>Address:</strong> {{ business.streetAddress }}, {{ business.city }}</p>
           <p class="mb-2"><strong>Hours:</strong> {{ business.openingHours }}</p>
-          <p><strong>Service Area:</strong> {{ business.serviceAreas.join(', ') }}</p>
+          <p class="mb-2"><strong>Service Area:</strong> {{ business.serviceAreas.join(', ') }}</p>
+          <v-alert class="mt-4" color="warning" variant="tonal" density="comfortable">
+            Standard on-site callout fee: <strong>{{ business.calloutFee }}</strong>
+          </v-alert>
         </v-card>
       </v-col>
       <v-col cols="12" md="6">
@@ -30,7 +34,7 @@ useSeo({
           <h2 class="text-h5 mb-4">Need help now?</h2>
           <v-btn block color="primary" size="large" :href="business.telLink" prepend-icon="mdi-phone">Call Now</v-btn>
           <v-btn block class="mt-3" color="secondary" size="large" :href="business.whatsappLink" target="_blank" prepend-icon="mdi-whatsapp">Send WhatsApp</v-btn>
-          <p class="text-body-2 mt-4 mb-0">For fastest service, include your area and a short job description.</p>
+          <p class="text-body-2 mt-4 mb-0">For fastest service, include your location, job type, and a few photos on WhatsApp.</p>
         </v-card>
       </v-col>
     </v-row>

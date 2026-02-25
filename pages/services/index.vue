@@ -12,7 +12,7 @@ useSeo({
 <template>
   <v-container class="py-12">
     <h1 class="text-h3 section-title mb-3">Our Services</h1>
-    <p class="mb-8">Practical, reliable workmanship for residential and small commercial projects.</p>
+    <p class="mb-8">Boilermaking, welding, plumbing, electrical, and construction services for residential and commercial projects.</p>
 
     <v-row>
       <v-col v-for="service in services" :key="service.slug" cols="12" md="4">
