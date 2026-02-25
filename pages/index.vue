@@ -1,176 +1,139 @@
-<template>
-  <v-container class="pa-0 login-shell" fluid>
-    <div class="login-hero d-flex align-center justify-center">
-      <v-card class="pa-7 pa-sm-10 login-card" elevation="12" max-width="520">
-        <div class="brand-row d-flex align-center justify-space-between">
-          <div>
-            <p class="eyebrow text-uppercase mb-2">Milaliso Studio</p>
-            <h1 class="headline mb-2">Admin login</h1>
-            <p class="subhead mb-0">
-              Curating African art, beadwork, and heritage craft for modern
-              spaces.
-            </p>
-          </div>
-          <v-avatar color="primary" size="48">
-            <v-icon color="white">mdi-brush</v-icon>
-          </v-avatar>
-        </div>
+<script setup lang="ts">
+import { services } from '~/composables/useServices'
 
-        <v-alert
-          v-if="errorMessage"
-          class="mt-5"
-          color="error"
-          variant="tonal"
-          icon="mdi-alert-circle"
-        >
-          {{ errorMessage }}
-        </v-alert>
+const site = useSiteConfigStore()
 
-        <v-form class="mt-6" @submit.prevent="handleLogin">
-          <v-text-field
-            v-model="username"
-            label="Username"
-            variant="outlined"
-            density="comfortable"
-            :disabled="loading"
-            prepend-inner-icon="mdi-account"
-          />
-          <v-text-field
-            v-model="password"
-            label="Password"
-            type="password"
-            variant="outlined"
-            density="comfortable"
-            class="mt-3"
-            :disabled="loading"
-            prepend-inner-icon="mdi-lock"
-          />
+useSeo({
+  title: 'Professional Welding, Plumbing & Construction in Witbank (Emalahleni) | Beasylink Projects',
+  description:
+    'Beasylink Projects provides reliable welding, plumbing, and construction services in Witbank, Emalahleni, and surrounding Mpumalanga areas.',
+  path: '/'
+})
 
-          <div class="d-flex align-center justify-space-between mt-5">
-            <span class="hint text-body-2">Use admin / admin</span>
-            <v-btn type="submit" color="primary" :loading="loading">
-              Enter studio
-            </v-btn>
-          </div>
-        </v-form>
-
-        <v-divider class="my-6" />
-
-        <div class="d-flex align-center justify-space-between">
-          <v-chip color="primary" variant="outlined" size="small">
-            Heritage craft
-          </v-chip>
-          <span class="text-caption text-medium-emphasis">
-            Beadographer access only
-          </span>
-        </div>
-      </v-card>
-    </div>
-  </v-container>
-</template>
-
-<style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap");
-
-.login-shell {
-  --clay: #9f5b2f;
-  --sun: #e3b152;
-  --forest: #2f4b3f;
-  --sand: #f7f1e6;
-  min-height: 100vh;
-}
-
-.login-hero {
-  min-height: 100vh;
-  background:
-    radial-gradient(circle at top, rgba(227, 177, 82, 0.35), transparent 55%),
-    radial-gradient(circle at 80% 20%, rgba(159, 91, 47, 0.25), transparent 45%),
-    linear-gradient(135deg, #f9f4ec 0%, #f2e7d5 45%, #f7f1e6 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.login-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: repeating-linear-gradient(
-    135deg,
-    rgba(47, 75, 63, 0.08) 0,
-    rgba(47, 75, 63, 0.08) 12px,
-    transparent 12px,
-    transparent 28px
-  );
-  opacity: 0.35;
-  pointer-events: none;
-}
-
-.login-card {
-  position: relative;
-  z-index: 1;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(6px);
-  box-shadow: 0 24px 50px rgba(47, 75, 63, 0.18);
-  font-family: "Work Sans", "Segoe UI", sans-serif;
-}
-
-.brand-row {
-  gap: 16px;
-}
-
-.headline {
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
-  font-size: 32px;
-  color: var(--forest);
-}
-
-.subhead {
-  color: rgba(47, 75, 63, 0.75);
-}
-
-.eyebrow {
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  color: var(--clay);
-  font-weight: 600;
-}
-
-.hint {
-  color: rgba(47, 75, 63, 0.7);
-}
-</style>
-
-<script>
-export default {
-  name: "AdminLoginPage",
-  data() {
-    return {
-      username: "",
-      password: "",
-      loading: false,
-      errorMessage: "",
-    };
+const schema = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: site.businessName,
+  telephone: site.phone,
+  email: site.email,
+  areaServed: site.serviceAreas,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Witbank',
+    addressRegion: 'Mpumalanga',
+    addressCountry: 'ZA'
   },
-  methods: {
-    async handleLogin() {
-      this.errorMessage = "";
-      if (!this.username || !this.password) {
-        this.errorMessage = "Enter your username and password.";
-        return;
-      }
+  openingHours: 'Mo-Sa 07:00-18:00',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Handyman and Construction Services',
+    itemListElement: site.primaryServices.map((item) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: item } }))
+  }
+}))
 
-      this.loading = true;
-      const isValid = this.username === "admin" && this.password === "admin";
-      this.loading = false;
-
-      if (!isValid) {
-        this.errorMessage = "Use the admin credentials to continue.";
-        return;
-      }
-
-      this.$router.push("/beadographer");
-    },
-  },
-};
+useHead({
+  script: [{ type: 'application/ld+json', children: JSON.stringify(schema.value) }]
+})
 </script>
+
+<template>
+  <div>
+    <section class="py-16 bg-grey-lighten-5">
+      <v-container>
+        <v-row align="center">
+          <v-col cols="12" md="7">
+            <p class="text-overline mb-2">Beasylink Projects</p>
+            <h1 class="text-h3 text-md-h2 section-title mb-4">
+              Professional Welding, Plumbing & Construction in Witbank (Emalahleni)
+            </h1>
+            <p class="text-body-1 mb-6">
+              We deliver practical, durable workmanship for homes and small businesses across Witbank, Emalahleni, and nearby suburbs.
+            </p>
+            <div class="d-flex ga-3 flex-wrap">
+              <v-btn color="primary" size="large" :href="site.telLink" prepend-icon="mdi-phone">Call {{ site.phone }}</v-btn>
+              <v-btn color="secondary" size="large" :href="site.whatsappLink" target="_blank" prepend-icon="mdi-whatsapp">WhatsApp</v-btn>
+            </div>
+          </v-col>
+          <v-col cols="12" md="5">
+            <NuxtImg src="/images/welding-gate-installation-witbank.svg" alt="welding-gate-installation-witbank" width="600" height="420" sizes="(max-width: 960px) 100vw, 40vw" loading="eager" class="rounded-lg" />
+          </v-col>
+        </v-row>
+      </v-container>
+    </section>
+
+    <section class="py-14">
+      <v-container>
+        <h2 class="text-h4 section-title mb-6">Core services</h2>
+        <v-row>
+          <v-col v-for="service in services" :key="service.slug" cols="12" md="4">
+            <v-card height="100%" elevation="2">
+              <NuxtImg :src="service.image" :alt="service.alt" width="420" height="260" sizes="(max-width: 960px) 100vw, 30vw" loading="lazy" class="w-100" />
+              <v-card-title>{{ service.title }}</v-card-title>
+              <v-card-text>{{ service.shortDescription }}</v-card-text>
+              <v-card-actions>
+                <v-btn variant="text" color="primary" :to="`/services/${service.slug}`">View details</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </section>
+
+    <section class="py-14 bg-grey-lighten-5">
+      <v-container>
+        <h2 class="text-h4 section-title mb-4">Why choose us</h2>
+        <v-list bg-color="transparent">
+          <v-list-item prepend-icon="mdi-check-circle">Quality workmanship on every job</v-list-item>
+          <v-list-item prepend-icon="mdi-check-circle">Reliable scheduling and clear communication</v-list-item>
+          <v-list-item prepend-icon="mdi-check-circle">Value for money with durable materials</v-list-item>
+        </v-list>
+      </v-container>
+    </section>
+
+    <section class="py-14">
+      <v-container>
+        <h2 class="text-h4 section-title mb-4">Local service in Witbank and Emalahleni</h2>
+        <p>
+          We work throughout Witbank and Emalahleni, including Tasbet Park, Reyno Ridge, Ben Fleur, and surrounding Mpumalanga neighborhoods.
+          Fast response, honest quotes, and clean workmanship are standard on every callout.
+        </p>
+      </v-container>
+    </section>
+
+    <section class="py-14 bg-grey-lighten-5">
+      <v-container>
+        <div class="d-flex justify-space-between align-center flex-wrap ga-3 mb-6">
+          <h2 class="text-h4 section-title">Recent project gallery</h2>
+          <v-btn color="primary" to="/gallery">View full gallery</v-btn>
+        </div>
+        <v-row>
+          <v-col cols="12" md="4">
+            <NuxtImg src="/images/metal-door-fabrication-emalahleni.svg" alt="metal-door-fabrication-emalahleni" width="420" height="280" sizes="(max-width: 960px) 100vw, 30vw" loading="lazy" class="rounded-lg" />
+          </v-col>
+          <v-col cols="12" md="4">
+            <NuxtImg src="/images/bathroom-plumbing-installation-witbank.svg" alt="bathroom-plumbing-installation-witbank" width="420" height="280" sizes="(max-width: 960px) 100vw, 30vw" loading="lazy" class="rounded-lg" />
+          </v-col>
+          <v-col cols="12" md="4">
+            <NuxtImg src="/images/brickwall-repair-mpumalanga.svg" alt="brickwall-repair-mpumalanga" width="420" height="280" sizes="(max-width: 960px) 100vw, 30vw" loading="lazy" class="rounded-lg" />
+          </v-col>
+        </v-row>
+      </v-container>
+    </section>
+
+    <section class="py-14">
+      <v-container>
+        <h2 class="text-h4 section-title mb-6">Client feedback</h2>
+        <v-row>
+          <v-col cols="12" md="4" v-for="item in 3" :key="item">
+            <v-card variant="outlined" height="100%">
+              <v-card-text>
+                "Great service, good communication, and quality finish. Will use Beasylink Projects again."
+              </v-card-text>
+              <v-card-subtitle>Local customer, Emalahleni</v-card-subtitle>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </section>
+  </div>
+</template>
